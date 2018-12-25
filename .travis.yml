@@ -14,5 +14,11 @@ after_success:
   - docker build -t trebsirk/multi-nginx ./nginx
   - docker build -t trebsirk/multi-worker ./worker
   # log in to the docker cli
-  
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # push these images to dockerhub
+  - docker push trebsirk/multi-client
+  - docker push trebsirk/multi-nginx
+  - docker push trebsirk/multi-server
+  - docker push trebsirk/multi-worker
+
+  
