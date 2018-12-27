@@ -20,5 +20,3 @@ after_success:
   - docker push trebsirk/multi-nginx
   - docker push trebsirk/multi-server
   - docker push trebsirk/multi-worker
-
-  
