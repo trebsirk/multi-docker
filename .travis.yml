@@ -20,3 +20,16 @@ after_success:
   - docker push trebsirk/multi-nginx
   - docker push trebsirk/multi-server
   - docker push trebsirk/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-1
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-us-east-1-040323213445
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
